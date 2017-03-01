@@ -1,0 +1,24 @@
+{
+  "name": "iot-tiki-mask",
+  "version": "1.0.0",
+  "description": "RasPi / Arduino / Johnny-five.io powered Tiki Mask.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdenForshaw/iot-tiki-mask.git"
+  },
+  "author": "aden forshaw",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AdenForshaw/iot-tiki-mask/issues"
+  },
+  "homepage": "https://github.com/AdenForshaw/iot-tiki-mask#readme",
+  "dependencies": {
+    "express": "^4.14.1",
+    "johnny-five": "^0.10.6",
+    "node-pixel": "^0.9.1"
+  }
+}
