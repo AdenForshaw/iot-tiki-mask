@@ -1,0 +1,19 @@
+{
+    "actions" : [{
+        "name":"default",
+        "desription":"default values for api methods",
+        "colour":"orange",
+        "animation":"Glow",
+        "animation_interval":50,
+        "sound":"test.mp3",
+        "duration":3000
+    },{
+        "name":"red",
+        "desription":"Something bad",
+        "colour":"red",
+        "animation":"cylon",
+        "animation_interval":50,
+        "sound":"test.mp3",
+        "duration":10000
+    }]
+}
