@@ -87,7 +87,7 @@ function loopLEDs()
 function stopAction()
 {
     //stop audio
-
+    player.stop();
     //reset leds
     resetLEDs();
     //clear timers
