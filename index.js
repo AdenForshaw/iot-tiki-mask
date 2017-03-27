@@ -6,9 +6,9 @@ var config = require('./config.json');
 var player = require('play-sound')(opts = {})
  
 
-router.get('/actions/start', function(req, res) { 
+router.get('/action/start', function(req, res) { 
 
-console.log("api",'actions/start',req.query);
+console.log("api",'action/start',req.query);
 
     //default action
     var index = 0;
@@ -17,14 +17,20 @@ console.log("api",'actions/start',req.query);
     //validate index is in range
     if(index>config.actions.length-1)
     {
-        res.json({ message: aName +' not found.' }); 
+        res.json({ message: index +' not found.' }); 
     }else{
         startAction(config.actions[index]);
-        res.json({ message: 'ok' }); 
+        res.json({ message: 'action started.' ,data:{id:index}}); 
     }
 });
 
-router.get('/actions/stop', function(req, res) {  
+router.get('/action/custom', function(req, res) {  
+    //as is demo don't validate input just execute
+    startAction(req.query);
+    res.json({ message: 'custom action started.' , data:req.query}); 
+});
+
+router.get('/action/stop', function(req, res) {  
     stopAction();
     res.json({ message: 'off' }); 
 });
@@ -49,17 +55,16 @@ function startAction(action)
     //stop everything
     stopAction()
     //play audio
-    playSound(action.sound);
+    if(action.sound)playSound(action.sound);
     //start leds - 
-    startLEDs(action.led_animation)
-
-
+    startLEDs();
     //set timeout based on duration
     setTimeout(onActionTimeout,action.duration);
 }
 
 function playSound(fileName)
 {
+    //remember to add attribution to http://soundbible.com/royalty-free-sounds-3.html
     player.play('./sounds/'+fileName, function(err){
     if (err) throw err
     })
@@ -87,7 +92,7 @@ function loopLEDs()
 function stopAction()
 {
     //stop audio
-    player.stop();
+    //player.stop();
     //reset leds
     resetLEDs();
     //clear timers
@@ -115,7 +120,7 @@ board.on("ready", function() {
     strip = new pixel.Strip({
         board: this,
         controller: "FIRMATA",
-        strips: [ {pin: 6, length: 8}, {pin: 8, length: 4},  {pin: 10, length: 4}, ], // this is preferred form for definition
+        strips: [ {pin: 6, length: 8}, {pin: 8, length: 8},  {pin: 10, length: 8}, ], // this is preferred form for definition
        // gamma: 2.8, // set to a gamma that works nicely for WS2812
     });
 
