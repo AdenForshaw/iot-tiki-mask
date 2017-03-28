@@ -1,10 +1,10 @@
-var Player = require('player');
+// Import the module. 
+var Omx = require('node-omxplayer');
  
-// create player instance 
-var player = new Player('./sounds/crows.mp3');
- 
-// play now and callback when playend 
-player.play(function(err, player){
-  console.log('playend!');
-});
- 
+var errorEvnt = function(err){
+    console.log('error',err)
+}
+
+// Create an instance of the player with the source. 
+var player = Omx('./sounds/crows.mp3');
+ player.on('error', errorEvnt);

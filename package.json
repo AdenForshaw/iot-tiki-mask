@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/AdenForshaw/iot-tiki-mask#readme",
   "dependencies": {
+    "aplay": "^1.0.1",
     "express": "^4.14.1",
     "johnny-five": "^0.10.6",
     "node-pixel": "^0.9.1",
