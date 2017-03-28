@@ -5,7 +5,7 @@
         "colour":"orange",
         "animation":"Glow",
         "animation_interval":50,
-        "sound":"gong.mp3",
+        "sound":"./sounds/gong.mp3",
         "duration":3000
     },{
         "name":"red",
@@ -13,7 +13,7 @@
         "colour":"red",
         "animation":"cylon",
         "animation_interval":50,
-        "sound":"crows.mp3",
+        "sound":"./sounds/crows.mp3",
         "duration":6000
     }]
 }

@@ -3,8 +3,16 @@ var express    = require('express');
 var app        = express();
 var router = express.Router(); 
 var config = require('./config.json');
+
+//required to detect if raspi or not
+ var os = require('os');
+
+//Audio on dev machine (mac osx)
 var player = require('play-sound')(opts = {})
- 
+//Audio for RasPi
+var Omx = require('node-omxplayer');
+
+console.log('info','OS platform detected as ',os.platform());
 
 router.get('/action/start', function(req, res) { 
 
@@ -64,10 +72,20 @@ function startAction(action)
 
 function playSound(fileName)
 {
-    //remember to add attribution to http://soundbible.com/royalty-free-sounds-3.html
-    player.play('./sounds/'+fileName, function(err){
-    if (err) throw err
-    })
+     //remember to add attribution to http://soundbible.com/royalty-free-sounds-3.html
+    
+    if(os.platform()=='raspian')
+    {
+        // Create an instance of the player with the source. 
+        var tPlayer = Omx(fileName);
+        tPlayer.on('error', function(err){
+            if (err) throw err
+        })
+    }else{
+        player.play(fileName, function(err){
+            if (err) throw err
+        })
+    }
 }
 
 function startLEDs()
