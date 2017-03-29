@@ -1,19 +1,37 @@
 {
     "actions" : [{
-        "name":"default",
-        "desription":"default values for api methods",
         "colour":"orange",
-        "animation":"Glow",
-        "animation_interval":50,
         "sound":"./sounds/gong.mp3",
-        "duration":3000
+        "duration":5000
     },{
-        "name":"red",
-        "desription":"Something bad",
         "colour":"red",
-        "animation":"cylon",
-        "animation_interval":50,
         "sound":"./sounds/crows.mp3",
+        "duration":4000
+    },{
+        "colour":"blue",
+        "sound":"./sounds/applause.mp3",
         "duration":6000
+    },{
+        "animation":"rainbow",
+        "sound":"./sounds/rooster.mp3",
+        "duration":5000
+    },{
+        "colour":"green",
+        "sound":"./sounds/merlin-bird.mp3",
+        "duration":6000
+    },{
+        "colour":"teal",
+        "sound":"./sounds/cardinal-bird.mp3",
+        "duration":4000
+    },{
+        "colour":["red", "green", "blue"],
+        "animation":"mexican-wave",
+        "sound":"./sounds/cardinal-bird.mp3",
+        "duration":6000
+    },{
+        "colour":["red", "red", "red"],
+        "animation":"mexican-wave",
+        "sound":"./sounds/gong.mp3",
+        "duration":10000
     }]
 }
