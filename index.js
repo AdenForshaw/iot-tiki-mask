@@ -101,7 +101,8 @@ function startLEDs()
             }, 1000/fps);
             break;
         default:
-            strip.colour(currentAction.colour); // sets strip to a blue-green color using a named colour
+
+            strip.colour(currentAction.colour);
             strip.show();
 
             break;
@@ -126,8 +127,6 @@ board.on("ready", function() {
 
     strip.on("ready", function() {
         console.log("debug","board and strip ready.")
-        //startAction(config.actions[0]);
-        //dynamicRainbow(fps);
     });
 });
 
